@@ -1,0 +1,38 @@
+.calculatorContainer {
+  height: 400px;
+  width: 300px;
+  margin: auto;
+  margin-top: 30px;
+  border: 2px solid;
+}
+
+.buttons {
+  height: 75%;
+}
+
+.buttonsRow {
+  display: flex;
+}
+
+.button {
+  text-align: center;
+  width: 25%;
+}
+
+.button > button {
+  height: 75px;
+  width: 100%;
+  font-size: 25px;
+}
+
+.display {
+  text-align: right;
+  height: 25%;
+  font-size: 30px;
+}
+
+.inputOutput {
+  height: 50%;
+  width: 100%;
+  border: 1px solid;
+}
