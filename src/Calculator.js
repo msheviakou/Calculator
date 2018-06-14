@@ -50,9 +50,7 @@ class Buttons extends Component {
             row.map((elem) => {
                 buttons.push(<Button title={elem} clickHandler={this.buttonClick}/>);
             })
-            buttonsRows.push(
-                <div className="buttonsRow">{buttons}</div>
-            );
+            buttonsRows.push(<div className="buttonsRow">{buttons}</div>);
         })
 
         return (
@@ -75,15 +73,23 @@ class Calculator extends Component {
     }
 
     calculate = (display, buttonName) => {
-        if (buttonName === "C") 
+        const reg =  /^\d+$/;
+        const lastChar = display.expression.substr(display.expression.length - 1);
+
+        if (buttonName === "C")
             return {
                 result: "",
                 expression: ""
             };
 
-        if (buttonName === "=") 
+        if (buttonName === "=" && reg.test(lastChar))
             return {
                 result: math.eval(display.expression)
+            };
+
+        if (buttonName === lastChar)
+            return {
+                expression: display.expression
             };
 
         return {
@@ -94,8 +100,8 @@ class Calculator extends Component {
     render() {
         return (
         	<div className="calculatorContainer">
-	        	<Display display={this.state}/>
-                        <Buttons clickHandler={this.buttonClick} buttons={BUTTONS}/>
+	        	  <Display display={this.state}/>
+              <Buttons clickHandler={this.buttonClick} buttons={BUTTONS}/>
 	        </div>
         );
     }
@@ -108,6 +114,3 @@ const BUTTONS = [
   	[1, 2, 3, '-'],
   	['*', 0, '/', 'C']
 ];
-
-
-
