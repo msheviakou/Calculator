@@ -95,7 +95,7 @@ class Calculator extends Component {
         return (
         	<div className="calculatorContainer">
 	        	<Display display={this.state}/>
-                <Buttons clickHandler={this.buttonClick} buttons={BUTTONS}/>
+                        <Buttons clickHandler={this.buttonClick} buttons={BUTTONS}/>
 	        </div>
         );
     }
